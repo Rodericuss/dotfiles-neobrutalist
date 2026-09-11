@@ -1,0 +1,102 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 55,
+  "margin-top": 10,
+  "margin-left": 20,
+  "margin-right": 20,
+  "margin-bottom": 8,
+  "spacing": 10,
+  "modules-left": [
+    "custom/dashboard",
+    "hyprland/workspaces",
+    "custom/tasks"
+  ],
+  "modules-center": [
+    "custom/previous",
+    "mpris",
+    "custom/next"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "bluetooth",
+    "clock",
+    "custom/notifications"
+  ],
+  "custom/dashboard": {
+    "format": "\u25a6",
+    "tooltip-format": "Desktop dashboard \u00b7 Super + Tab",
+    "on-click": "~/.config/neobrutal/control dashboard"
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "\u25a3",
+      "default": "\u25cb"
+    },
+    "on-click": "activate",
+    "persistent-workspaces": {
+      "*": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "custom/tasks": {
+    "format": "\u2713 Tasks",
+    "on-click": "~/.config/neobrutal/control widgets",
+    "tooltip-format": "Tasks, calendar & focus \u00b7 Super + T"
+  },
+  "custom/previous": {
+    "format": "\udb81\udcae",
+    "on-click": "playerctl previous",
+    "tooltip": false
+  },
+  "mpris": {
+    "format": "{title}  \udb80\udfe4",
+    "format-paused": "{title}  \udb81\udc0a",
+    "max-length": 28,
+    "title-len": 25,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "~/.config/neobrutal/control dashboard",
+    "tooltip-format": "{artist} \u2014 {title}"
+  },
+  "custom/next": {
+    "format": "\udb81\udcad",
+    "on-click": "playerctl next",
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "\udb81\udd7e {volume}%",
+    "format-muted": "\udb81\udf5f",
+    "on-click": "pavucontrol",
+    "on-click-right": "pamixer -t",
+    "scroll-step": 5
+  },
+  "network": {
+    "format-wifi": "\udb81\udda9",
+    "format-ethernet": "\udb80\ude00",
+    "format-disconnected": "\udb81\uddaa",
+    "tooltip-format": "{ifname}: {ipaddr}",
+    "on-click": "nm-connection-editor"
+  },
+  "bluetooth": {
+    "format": "\udb80\udcaf",
+    "format-disabled": "\udb80\udcb2",
+    "on-click": "blueman-manager"
+  },
+  "clock": {
+    "format": "\u25f7 {:%H:%M}",
+    "on-click": "~/.config/neobrutal/control widgets",
+    "tooltip-format": "{:%A, %d %B %Y}"
+  },
+  "custom/notifications": {
+    "format": "\udb80\udc9a",
+    "on-click": "swaync-client -t",
+    "tooltip-format": "Notifications"
+  }
+}

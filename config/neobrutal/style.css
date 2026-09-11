@@ -1,0 +1,25 @@
+* { font-family: "GeistMono Nerd Font", "JetBrainsMono Nerd Font", monospace; font-size: 13px; color: #241d1b; }
+window { background: transparent; }
+.surface { padding: 5px 9px 10px 5px; }
+.dashboard, .card { background: #f0e1d6; border: 2px solid #241d1b; border-radius: 15px; box-shadow: 5px 5px 0 #241d1b; padding: 18px; }
+.dashboard .card { background: #f7ede6; padding: 16px; border-radius: 12px; box-shadow: 3px 3px 0 #241d1b; }
+button { background: #faf0e7; background-image: none; border: 2px solid #241d1b; border-radius: 9px; box-shadow: 2px 3px 0 #241d1b; padding: 9px 12px; text-shadow: none; }
+button:hover { background: #e8c1a4; }
+button:active { box-shadow: none; }
+.heading { font-weight: bold; letter-spacing: 1px; }
+.muted { color: #8b7368; font-size: 11px; }
+.clock { font-size: 42px; letter-spacing: 3px; }
+.timer { font-size: 46px; padding: 16px; border: 2px solid #241d1b; border-radius: 18px; background: #ffcad6; }
+.avatar { font-size: 56px; color: #708e99; padding: 5px 35px; }
+.song { font-size: 17px; font-weight: bold; }
+button.peach { background: #ffad94; } button.pink { background: #ffcad6; } button.green { background: #c5dea8; } button.blue { background: #a6c9e5; } button.lilac { background: #d2bfe2; }
+label.peach { color: #ffad94; } label.pink { color: #ffb5c6; } label.yellow { color: #ddb900; } label.green { color: #93af72; } label.blue { color: #709aba; } label.lilac { color: #b68ace; }
+entry { background: #faf0e7; border: 2px solid #241d1b; border-radius: 10px; padding: 9px; box-shadow: none; }
+checkbutton check { background: #faf0e7; border: 2px solid #241d1b; border-radius: 5px; min-width: 17px; min-height: 17px; }
+checkbutton check:checked { background: #c5dea8; }
+calendar { background: transparent; padding: 10px; }
+calendar:selected { background: #c5dea8; border-radius: 20px; }
+calendar.header { background: transparent; }
+scale trough { background: #e1cfc2; min-height: 10px; border: 1px solid #241d1b; border-radius: 8px; }
+scale highlight { background: #ffad94; border-radius: 8px; }
+scale slider { background: #f9eee4; border: 2px solid #241d1b; min-width: 16px; min-height: 16px; }

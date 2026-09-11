@@ -1,0 +1,48 @@
+onboarding = false
+[keys]
+prefix = "ctrl+s"
+
+# Workspaces
+switch_workspace = "prefix+shift+1..9"
+
+# Tabs
+switch_tab = "prefix+1..9"
+
+# Nice extras
+new_workspace = "prefix+shift+n"
+workspace_picker = "prefix+w"
+
+new_tab = "prefix+c"
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+
+reload_config = "prefix+shift+r"
+detach = "prefix+q"
+help = "prefix+?"
+
+[ui]
+agent_panel_sort = "spaces"
+show_agent_labels_on_pane_borders = true
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+# Neobrutal ink frame and pastel accents; high-contrast terminal UI.
+[theme.custom]
+panel_bg = "#241d1b"
+surface0 = "#65534a"
+surface1 = "#80685b"
+surface_dim = "#302623"
+overlay0 = "#b7a49a"
+overlay1 = "#cdb9aa"
+text = "#fff6ed"
+subtext0 = "#cdb9aa"
+accent = "#c5dea8"
+mauve = "#d2bfe2"
+green = "#c5dea8"
+yellow = "#e8bd65"
+red = "#ffad94"
+blue = "#a6c9e5"
+teal = "#a2c5b4"
+peach = "#ffad94"

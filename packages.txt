@@ -1,0 +1,11 @@
+waybar
+python-gobject
+gtk3
+gtk-layer-shell
+playerctl
+pamixer
+pavucontrol
+rofi
+hyprpaper
+swaync
+libnotify

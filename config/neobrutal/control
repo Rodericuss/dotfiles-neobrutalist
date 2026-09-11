@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+root="${XDG_CONFIG_HOME:-$HOME/.config}/neobrutal"
+state="${XDG_STATE_HOME:-$HOME/.local/state}/neobrutal"
+mkdir -p "$state"
+start_shell() {
+    if [[ -f "$state/shell.pid" ]] && kill -0 "$(cat "$state/shell.pid")" 2>/dev/null && [[ "$(cat /proc/"$(cat "$state/shell.pid")"/comm)" == python* ]]; then return; fi
+    nohup python "$root/shell.py" >"$state/shell.log" 2>&1 &
+    echo "$!" > "$state/shell.pid"
+    sleep 0.6
+}
+case "${1:-dashboard}" in
+ start)
+    start_shell
+    if ! pgrep -x waybar >/dev/null; then nohup waybar >"$state/waybar.log" 2>&1 & fi
+    if ! pgrep -x swaync >/dev/null; then nohup swaync >"$state/swaync.log" 2>&1 & fi
+    ;;
+ dashboard|widgets)
+    start_shell
+    sig=USR1; [[ "$1" == widgets ]] && sig=USR2
+    kill -"$sig" "$(cat "$state/shell.pid")"
+    ;;
+ stop)
+    if [[ -f "$state/shell.pid" ]]; then
+      pid="$(cat "$state/shell.pid")"
+      if [[ -r "/proc/$pid/cmdline" ]] && tr '\0' ' ' < "/proc/$pid/cmdline" | grep -Fq "$root/shell.py"; then kill "$pid"; fi
+      rm -f "$state/shell.pid"
+    fi
+    ;;
+esac

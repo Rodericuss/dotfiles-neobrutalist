@@ -1,0 +1,56 @@
+add_newline = true
+palette = "paper"
+format = "$directory$git_branch$git_status$elixir$nodejs$python$rust$cmd_duration$line_break$character"
+
+[palettes.paper]
+ink = "#241d1b"
+peach = "#ffad94"
+green = "#c5dea8"
+lilac = "#d2bfe2"
+blue = "#a6c9e5"
+pink = "#ffcad6"
+
+[directory]
+style = "bold fg:ink bg:peach"
+format = "[  $path ]($style) "
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = " "
+style = "fg:ink bg:green"
+format = "[ $symbol$branch ]($style) "
+
+[git_status]
+style = "fg:ink bg:pink"
+format = "([ $all_status$ahead_behind ]($style) )"
+
+[elixir]
+symbol = " "
+style = "fg:ink bg:lilac"
+format = "[ $symbol$version ]($style) "
+
+[nodejs]
+symbol = " "
+style = "fg:ink bg:green"
+format = "[ $symbol$version ]($style) "
+
+[python]
+symbol = " "
+style = "fg:ink bg:blue"
+format = "[ $symbol$version ]($style) "
+
+[rust]
+symbol = " "
+style = "fg:ink bg:peach"
+format = "[ $symbol$version ]($style) "
+
+[cmd_duration]
+min_time = 2000
+style = "fg:ink bg:blue"
+format = "[ ◷ $duration ]($style) "
+
+[character]
+success_symbol = "[❯](bold #708b51)"
+error_symbol = "[❯](bold #b14c44)"
+vimcmd_symbol = "[❮](bold #855289)"

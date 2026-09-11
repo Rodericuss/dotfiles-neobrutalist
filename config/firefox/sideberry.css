@@ -1,0 +1,49 @@
+/* Paste into Sidebery > Settings > Styles editor, or use the scoped userContent installer. */
+:root, body, #root.root {
+  background: #f0e1d6 !important;
+  color: #241d1b !important;
+  font-family: "GeistMono Nerd Font", monospace !important;
+  color-scheme: light !important;
+  --frame-bg: #f0e1d6 !important;
+  --frame-fg: #241d1b !important;
+  --toolbar-bg: #e8c1a4 !important;
+  --toolbar-fg: #241d1b !important;
+  --tabs-font: 12px "GeistMono Nerd Font", monospace !important;
+  --tabs-height: 36px !important;
+  --tabs-margin: 7px !important;
+  --tabs-inner-gap: 7px !important;
+  --tabs-border-radius: 8px !important;
+  --tabs-normal-bg: #fff4ea !important;
+  --tabs-normal-fg: #241d1b !important;
+  --tabs-activated-bg: #c5dea8 !important;
+  --tabs-activated-fg: #241d1b !important;
+  --tabs-selected-bg: #d2bfe2 !important;
+  --tabs-selected-fg: #241d1b !important;
+  --tabs-discarded-title-opacity: .7 !important;
+  --tabs-lvl-opacity: .7 !important;
+  --active-el-bg: #c5dea8 !important;
+  --ctx-menu-bg: #fff4ea !important;
+  --ctx-menu-fg: #241d1b !important;
+  --ctx-menu-border: #241d1b !important;
+  --ctx-menu-separator: #d4bba9 !important;
+  --ctx-menu-shadow: 3px 3px 0 #241d1b !important;
+}
+#root .Tab {
+  clip-path: none !important;
+  background: #fff4ea !important;
+  color: #241d1b !important;
+  border: 2px solid #241d1b !important;
+  border-radius: 8px !important;
+  box-shadow: 2px 2px 0 #241d1b !important;
+}
+#root .Tab:hover { background: #e8c1a4 !important; }
+#root .Tab[data-active="true"], #root .Tab[data-active] { background: #c5dea8 !important; color: #241d1b !important; }
+#root .Tab[data-active="false"] { background: #fff4ea !important; }
+#root .Tab[data-selected="true"] { background: #d2bfe2 !important; }
+#root .Tab .title { color: #241d1b !important; }
+#root .Tab .color-layer { opacity: 0 !important; }
+#root .NavigationBar { background: #e8c1a4 !important; border-bottom: 2px solid #241d1b !important; padding: 6px !important; }
+#root .nav-item { color: #241d1b !important; border-radius: 7px !important; }
+#root .nav-item[data-active="true"] { background: #c5dea8 !important; box-shadow: 2px 2px 0 #241d1b !important; }
+#root .bottom-bar { background: #f0e1d6 !important; color: #241d1b !important; }
+#root .new-tab-btn { color: #241d1b !important; background: #ffcad6 !important; border: 2px solid #241d1b !important; border-radius: 8px !important; margin: 9px !important; }

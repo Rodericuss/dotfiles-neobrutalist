@@ -1,0 +1,57 @@
+/* Neobrutal browser chrome. Web pages keep their own colors. */
+:root {
+  --nb-ink: #241d1b;
+  --nb-paper: #f0e1d6;
+  --nb-cream: #fff4ea;
+  --nb-peach: #ffad94;
+  --nb-green: #c5dea8;
+  --toolbar-bgcolor: var(--nb-paper) !important;
+  --toolbar-color: var(--nb-ink) !important;
+  --lwt-accent-color: var(--nb-paper) !important;
+  --lwt-text-color: var(--nb-ink) !important;
+  --toolbar-field-background-color: var(--nb-cream) !important;
+  --toolbar-field-color: var(--nb-ink) !important;
+  --toolbar-field-focus-background-color: var(--nb-cream) !important;
+  --toolbar-field-focus-color: var(--nb-ink) !important;
+  --toolbarbutton-hover-background: #e8c1a4 !important;
+  --toolbarbutton-active-background: var(--nb-green) !important;
+  --toolbarbutton-border-radius: 8px !important;
+  --sidebar-background-color: var(--nb-paper) !important;
+  --sidebar-text-color: var(--nb-ink) !important;
+  --arrowpanel-background: var(--nb-cream) !important;
+  --arrowpanel-color: var(--nb-ink) !important;
+  --arrowpanel-border-color: var(--nb-ink) !important;
+  --arrowpanel-border-radius: 12px !important;
+  --urlbarView-highlight-background: var(--nb-green) !important;
+  --urlbarView-highlight-color: var(--nb-ink) !important;
+  --chrome-content-separator-color: var(--nb-ink) !important;
+  color-scheme: light !important;
+}
+#main-window, #navigator-toolbox, #nav-bar, #PersonalToolbar, #sidebar-box, #sidebar-main, #sidebar-header {
+  background: var(--nb-paper) !important;
+  color: var(--nb-ink) !important;
+}
+#navigator-toolbox { border-bottom: 2px solid var(--nb-ink) !important; }
+#nav-bar { padding: 7px 8px !important; }
+#PersonalToolbar { padding: 3px 10px 7px !important; }
+#TabsToolbar { display: none !important; }
+#sidebar-header { display: none !important; }
+#sidebar-box { border-inline-start: 2px solid var(--nb-ink) !important; }
+#sidebar-splitter { width: 3px !important; background: var(--nb-ink) !important; border: 0 !important; }
+#urlbar-background, #searchbar {
+  background: var(--nb-cream) !important;
+  border: 2px solid var(--nb-ink) !important;
+  border-radius: 10px !important;
+  box-shadow: 3px 3px 0 var(--nb-ink) !important;
+}
+#urlbar-input, #urlbar-scheme, .urlbarView-row, #searchbar { color: var(--nb-ink) !important; }
+#urlbar, #searchbar, #PersonalToolbar, #sidebar-box {
+  font-family: "GeistMono Nerd Font", monospace !important;
+  font-size: 12px !important;
+}
+#urlbar[open] .urlbarView { background: var(--nb-cream) !important; border-radius: 10px !important; }
+.urlbarView-row[selected] .urlbarView-row-inner { background: var(--nb-green) !important; color: var(--nb-ink) !important; }
+.toolbarbutton-1 { color: var(--nb-ink) !important; fill: var(--nb-ink) !important; }
+#PersonalToolbar .bookmark-item { color: var(--nb-ink) !important; border-radius: 7px !important; padding: 4px 7px !important; }
+#PersonalToolbar .bookmark-item:hover { background: #e8c1a4 !important; }
+menupopup, panel { --panel-background: var(--nb-cream) !important; --panel-color: var(--nb-ink) !important; }
