@@ -55,3 +55,18 @@
 #PersonalToolbar .bookmark-item { color: var(--nb-ink) !important; border-radius: 7px !important; padding: 4px 7px !important; }
 #PersonalToolbar .bookmark-item:hover { background: #e8c1a4 !important; }
 menupopup, panel { --panel-background: var(--nb-cream) !important; --panel-color: var(--nb-ink) !important; }
+
+/* Keep the focused address field readable, including its native input. */
+#urlbar[focused], #urlbar:focus-within {
+  --toolbar-field-focus-background-color: #d6d6d6 !important;
+  --toolbar-field-focus-color: #241d1b !important;
+}
+#urlbar[focused] #urlbar-background,
+#urlbar:focus-within #urlbar-background,
+#urlbar[focused] .urlbar-input-container,
+#urlbar:focus-within .urlbar-input-container,
+#urlbar-input:focus {
+  background: #d6d6d6 !important;
+  color: #241d1b !important;
+  caret-color: #241d1b !important;
+}

@@ -5,6 +5,9 @@ A local recreation of the pastel / ink aesthetic in [Darkkal44's Bruteon](https:
 ## Use
 
 - **Super + Tab** or the grid button: dashboard, system usage, apps, audio and media.
+- **Super + N**: toggle the notification center (normal and focus modes).
+- **Super + C**: open or toggle the dedicated Herdr terminal.
+- **Super + E / Super + A**: toggle the existing Yazi / Discord special workspaces; dashboard buttons use these workspaces too.
 - **Super + T**, Tasks, or the clock: tasks, calendar, focus timer and music.
 - **Escape**: close widgets when they have keyboard focus. The same shortcut/button also closes them.
 - **F7**: existing normal / distraction-free mode, with the bar hidden in focus mode.
@@ -43,3 +46,19 @@ Firefox source files live in `~/.config/firefox`. `firefox.py` installs `userChr
 Rofi configuration properties must be on separate lines with this installed build. Verification now checks `-dump-config` and actual launcher rendering, rather than relying on `-dump-theme` alone.
 
 References: [Herdr configuration](https://herdr.dev/docs/configuration/), [Sidebery CSS](https://github.com/mbnuqw/sidebery/wiki/Sidebery-Styles-Snippets). Codex's `tui.theme` changes syntax highlighting, so input contrast is handled with the terminal palette, not an invented Codex setting.
+
+## Neovim
+
+The `neobrutalist` colorscheme uses the installed Cyberdream engine with an opaque ink background, warm text, pastel syntax colors and accented picker borders. Lualine uses rectangular sections: peach for normal, green for insert, lilac for visual, yellow for command and blue for terminal mode.
+
+The files in `config/nvim` overlay the existing Kickstart/lazy.nvim configuration. They require `scottmckendry/cyberdream.nvim`, `nvim-lualine/lualine.nvim`, and the `custom.plugins` import. They do not replace the editor's keymaps or language tooling. The plugin override disables the old Tokyonight init callback that loaded CYBR colors and hard-coded Telescope/Elixir highlights.
+
+Restart Neovim after activation. Palette: `config/nvim/lua/neobrutalist/palette.lua`. Theme: `config/nvim/colors/neobrutalist.lua`. Statusline: `config/nvim/lua/lualine/themes/neobrutalist.lua`. Upstream engine: [Cyberdream](https://github.com/scottmckendry/cyberdream.nvim); no upstream source is copied or forked.
+
+When running inside Kitty with remote control enabled, Neovim matches its own terminal background to the editor and uses 4 px padding. This removes the contrasting rectangular frame inside the rounded compositor window. The previous terminal background and configured padding are restored on exit or suspension. Other terminal windows are not targeted.
+
+## Notifications and Firefox
+
+SwayNC uses opaque cream cards, pastel controls and bundled SVG notification/music icons. Media controls use dark symbols; the music illustration replaces the album thumbnail. The stylesheet imports `/etc/xdg/swaync/style.css` from the installed SwayNC package. Activation and restoration reload the stylesheet.
+
+Firefox uses a light-grey focused address field with dark text. Restart Firefox after applying or restoring browser CSS.

@@ -191,8 +191,8 @@ class Shell:
         add(profile,label(os.environ.get('USER','user'), 'song'))
         add(profile,label('●  Online','green'))
         add(left,profile)
-        for title,cmd in [('󰈹  Firefox',['firefox']),('󰆍  Terminal',['kitty']),('󰉋  Files',['kitty','-e','yazi']),('󰏘  Editor',['neovide']),('󰙯  Discord',['discord'])]:
-            add(left,button(title,lambda cmd=cmd: launch(*cmd)))
+        for title,cmd in [('󰈹  Firefox',['firefox']),('󰆍  Terminal',['kitty']),('󰉋  Files',['hyprctl','eval','hl.dispatch(hl.dsp.workspace.toggle_special("yazi"))']),('󰏘  Editor',['neovide']),('󰙯  Discord',['hyprctl','eval','hl.dispatch(hl.dsp.workspace.toggle_special("discord"))'])]:
+            add(left,button(title,lambda cmd=cmd: (self.hide_all(), launch(*cmd))))
         add(body,left)
         middle=box(True)
         add(middle,self.clock())

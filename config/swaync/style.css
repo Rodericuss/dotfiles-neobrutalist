@@ -1,0 +1,103 @@
+/* Neobrutalist SwayNC: retain upstream layout and theme every surface. */
+@import url("/etc/xdg/swaync/style.css");
+:root {
+  --cc-bg: #f0e1d6;
+  --noti-border-color: #241d1b;
+  --noti-bg: 247, 237, 230;
+  --noti-bg-alpha: 1;
+  --noti-bg-darker: #f0e1d6;
+  --noti-bg-hover: #e8c1a4;
+  --noti-bg-focus: #c5dea8;
+  --noti-close-bg: #ffcad6;
+  --noti-close-bg-hover: #ffad94;
+  --text-color: #241d1b;
+  --text-color-disabled: #65534a;
+  --bg-selected: #c5dea8;
+  --border: 2px solid #241d1b;
+  --border-radius: 12px;
+  --notification-shadow: 3px 3px 0 #241d1b;
+  --font-size-body: 13px;
+  --font-size-summary: 14px;
+}
+* { font-family: "GeistMono Nerd Font", monospace; font-size: 13px; }
+.control-center {
+  background: #f0e1d6; color: #241d1b;
+  border: 2px solid #241d1b; border-radius: 16px;
+  box-shadow: 5px 5px 0 #241d1b; margin: 8px; padding: 14px;
+}
+.control-center label, .notification label { color: #241d1b; text-shadow: none; }
+.widget-title { font-weight: bold; margin: 4px 4px 16px; }
+.widget-title > label { font-size: 17px; }
+button {
+  background: #faf0e7; background-image: none; color: #241d1b;
+  border: 2px solid #241d1b; border-radius: 9px;
+  box-shadow: 2px 2px 0 #241d1b; text-shadow: none; padding: 6px 10px;
+}
+button:hover { background: #ffad94; color: #241d1b; }
+button:active { background: #c5dea8; box-shadow: none; }
+.widget-title > button { background: #c5dea8; color: #241d1b; }
+.widget-dnd { margin: 0 4px 14px; }
+.widget-dnd > switch {
+  background: #d2bfe2; border: 2px solid #241d1b; border-radius: 12px;
+  min-width: 44px; min-height: 24px;
+}
+.widget-dnd > switch:checked { background: #c5dea8; }
+.widget-dnd > switch slider {
+  background: #faf0e7; border: 2px solid #241d1b;
+  border-radius: 9px; min-width: 16px; min-height: 16px; margin: 2px; box-shadow: none;
+}
+.notification { background: #f7ede6; border: 2px solid #241d1b; border-radius: 12px; }
+.notification.critical { background: #ffcad6; }
+.notification-content { padding: 10px; }
+.summary { font-weight: bold; }
+.time { color: #65534a; }
+.close-button { background: #ffcad6; color: #241d1b; padding: 0; }
+.notification-action { background: #a6c9e5; color: #241d1b; }
+.widget-mpris { margin: 14px 4px 4px; }
+.widget-mpris .widget-mpris-player {
+  background: #d2bfe2; color: #241d1b; border: 2px solid #241d1b;
+  border-radius: 12px; box-shadow: 3px 3px 0 #241d1b; padding: 10px;
+}
+.widget-mpris .widget-mpris-player .mpris-background { opacity: 0; }
+.widget-mpris .widget-mpris-player .mpris-overlay { background: #d2bfe2; padding: 8px; }
+.widget-mpris .widget-mpris-player button { background: #faf0e7; color: #241d1b; margin: 4px; }
+.widget-mpris .widget-mpris-player button:hover { background: #c5dea8; }
+.widget-mpris-album-art { border-radius: 9px; }
+
+/* Use scalable symbolic icons instead of the desktop's raster fallbacks. */
+.control-center image {
+  -gtk-icon-style: symbolic;
+  color: #241d1b;
+  -gtk-icon-shadow: none;
+}
+.widget-notifications image { -gtk-icon-size: 48px; }
+.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-album-art {
+  -gtk-icon-size: 56px;
+  box-shadow: none;
+  background: transparent;
+  border-radius: 0;
+}
+.widget-mpris .widget-mpris-player button image {
+  -gtk-icon-size: 22px;
+  color: #241d1b;
+}
+.widget-mpris .widget-mpris-player button:disabled image { color: #65534a; }
+
+.control-center-list-placeholder {
+  background-image: url("icons/bell.svg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 64px 64px;
+}
+.control-center-list-placeholder image { opacity: 0; }
+.widget-mpris .widget-mpris-player .mpris-overlay > box:first-child {
+  background-image: url("icons/music.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 56px 56px;
+}
+.widget-mpris-album-art { opacity: 0; }
+.widget-mpris .widget-mpris-player button image {
+  -gtk-icon-filter: brightness(0);
+  -gtk-icon-shadow: none;
+}

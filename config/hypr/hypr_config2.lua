@@ -146,10 +146,20 @@ hl.workspace_rule({
 	on_created_empty = "discord",
 })
 
+-- Dedicated Herdr terminal; create once and reuse while it is open.
+hl.window_rule({
+  match = { class = "^(herdr-special)$" },
+  workspace = "special:herdr",
+})
+hl.workspace_rule({
+  workspace = "special:herdr",
+  on_created_empty = "kitty --class=herdr-special --title=Herdr -e fish -ic herdr",
+})
+
 ---- KEYBINDINGS ----
 local mainMod = "SUPER"
 
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("neovide"))
+hl.bind(mainMod .. " + C", hl.dsp.workspace.toggle_special("herdr"))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("kitty"))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("st"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("firefox"))
@@ -219,3 +229,6 @@ hl.bind("SUPER + T", hl.dsp.exec_cmd("~/.config/neobrutal/control widgets"))
 
 -- Keep the existing F7 distraction-free mode.
 hl.config({ general = { gaps_in = 0, gaps_out = 0, border_size = 0 }, decoration = { rounding = 0, shadow = { enabled = false } } })
+
+-- Notification center, available in normal and focus modes.
+hl.bind("SUPER + N", hl.dsp.exec_cmd("swaync-client --toggle-panel"))
