@@ -9,6 +9,7 @@ A local recreation of the pastel / ink aesthetic in [Darkkal44's Bruteon](https:
 - **Super + C**: open or toggle the dedicated Herdr terminal.
 - **Super + E / Super + A**: toggle the existing Yazi / Discord special workspaces; dashboard buttons use these workspaces too.
 - **Super + T**, Tasks, or the clock: tasks, calendar, focus timer and music.
+- The dashboard and tasks/calendar panels toggle independently and can stay open together.
 - **Escape**: close widgets when they have keyboard focus. The same shortcut/button also closes them.
 - **F7**: existing normal / distraction-free mode, with the bar hidden in focus mode.
 - Tasks are stored locally in `~/.local/state/neobrutal/tasks.json`.

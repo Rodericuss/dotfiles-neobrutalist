@@ -120,9 +120,9 @@ class Shell:
     def toggle(self, name):
         names = ['tasks', 'calendar'] if name == 'widgets' else ['dashboard']
         visible = self.windows[names[0]].get_visible()
-        self.hide_all()
-        if not visible:
-            for n in names: self.windows[n].show_all()
+        for n in names:
+            if visible: self.windows[n].hide()
+            else: self.windows[n].show_all()
 
     def clock(self):
         c = card()
