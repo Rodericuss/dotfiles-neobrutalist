@@ -41,8 +41,23 @@ Python desktop dependencies come from pacman, not global pip installs.
 Log out and enter Hyprland after completion. The installer does not reload your
 current desktop. Kitty uses Fish without changing your login shell. NetworkManager,
 Bluetooth and user audio services are enabled. No credentials or agent accounts
-are configured. Firefox/Sidebery CSS is applied to existing Sidebery profiles;
-install Sidebery in Firefox and rerun `./activate.sh` to style a new profile.
+are configured. Firefox CSS and its required `toolkit.legacyUserProfileCustomizations.stylesheets`
+preference are configured in existing profiles through a managed `user.js` block.
+Sidebery CSS is applied when its profile UUID is available. Install/enable Sidebery,
+close Firefox and run `python firefox.py` to finish a new profile. Without Sidebery,
+horizontal tabs stay visible. If Firefox has never been opened, open and close it
+once to create its profile, then rerun. Restart Firefox completely afterward.
+
+To update an existing installation, close Firefox and run:
+
+```bash
+git pull --ff-only
+./install.sh --no-packages --no-tools
+```
+
+A full `./install.sh` also reapplies the fix. For only the browser configuration,
+run `python firefox.py` after pulling. Existing browser preferences and CSS are
+preserved outside the managed blocks; the original rollback backup is retained.
 
 ### Options and machine settings
 
