@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if [[ "${1:-}" == add ]]; then
+    wl-paste --no-newline | cliphist store
+else
+    selection=$(cliphist list | fzf --prompt='Clipboard: ' --border) || exit 0
+    [[ -n "$selection" ]] && printf '%s\n' "$selection" | cliphist decode | wl-copy
+fi

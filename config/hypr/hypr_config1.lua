@@ -1,31 +1,20 @@
 -- Hyprland Config 1 - Normal Mode (gaps, borders, animations)
 
 ---- MONITORS ----
-hl.monitor({
-  output = "HDMI-A-1",
-  mode = "1920x1080@60",
-  position = "1920x0",
-  scale = 1,
-})
-
-hl.monitor({
-  output = "DP-1",
-  mode = "1920x1080@60",
-  position = "0x0",
-  scale = 1,
-})
+hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
+-- Put machine-specific monitor/input overrides in this file; F7 preserves it.
 
 ---- AUTOSTART ----
 hl.on("hyprland.start", function()
   hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
   hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+  hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
   hl.exec_cmd("blueman-applet")
   hl.exec_cmd("hyprpaper")
   hl.exec_cmd("nm-applet --indicator")
   hl.exec_cmd("wl-paste --watch cliphist store")
   hl.exec_cmd("~/.config/neobrutal/control start")
   -- Panel startup is handled by neobrutal/control.
-  hl.exec_cmd("hyprpm reload -n")
 end)
 
 ---- ENVIRONMENT VARIABLES ----
@@ -185,11 +174,11 @@ local mainMod = "SUPER"
 
 hl.bind(mainMod .. " + C", hl.dsp.workspace.toggle_special("herdr"))
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("kitty"))
-hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("st"))
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("kitty"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("firefox"))
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd('kitty --title "Cliphist FZF" sh -c "/home/amitis/scripts/cliphist_fzf.sh"'))
-hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("sh -c '/home/amitis/scripts/dmenu_cliphist.sh add'"))
-hl.bind("F7", hl.dsp.exec_cmd("sh -c '~/scripts/f1_hypr_conf.sh'"))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd('kitty --title "Cliphist FZF" sh -c "~/.config/neobrutal/scripts/clipboard"'))
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("sh -c '~/.config/neobrutal/scripts/clipboard add'"))
+hl.bind("F7", hl.dsp.exec_cmd("sh -c '~/.config/neobrutal/scripts/focus'"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("kill -9 $(hyprctl activewindow -j | jq .pid)"))
 hl.bind(mainMod .. " + W", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.center())
@@ -223,10 +212,6 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Volume and Media Control
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pamixer -i 5"))
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pamixer -d 5"))
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("pamixer --default-source -m"))
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pamixer -t"))
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"))
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"))
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"))
@@ -253,3 +238,7 @@ hl.bind("SUPER + T", hl.dsp.exec_cmd("~/.config/neobrutal/control widgets"))
 
 -- Notification center, available in normal and focus modes.
 hl.bind("SUPER + N", hl.dsp.exec_cmd("swaync-client --toggle-panel"))
+
+local local_config = os.getenv("HOME") .. "/.config/hypr/local.lua"
+local f = io.open(local_config, "r")
+if f then f:close(); dofile(local_config) end

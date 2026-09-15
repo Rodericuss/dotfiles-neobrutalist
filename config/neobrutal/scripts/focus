@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+root="$HOME/.config/hypr"
+if cmp -s "$root/hyprland.lua" "$root/hypr_config1.lua"; then
+    cp "$root/hypr_config2.lua" "$root/hyprland.lua"
+    pkill -x waybar || true
+else
+    cp "$root/hypr_config1.lua" "$root/hyprland.lua"
+    "$HOME/.config/neobrutal/control" start
+fi
+hyprctl reload

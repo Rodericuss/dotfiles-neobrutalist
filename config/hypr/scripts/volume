@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+case "${1:-}" in
+ --inc) pamixer -i 5 ;;
+ --dec) pamixer -d 5 ;;
+ --toggle) pamixer -t ;;
+ --toggle-mic) pamixer --default-source -t ;;
+ *) pamixer --get-volume; exit ;;
+esac
+notify-send -h string:x-canonical-private-synchronous:volume -i audio-volume-high "Volume" "$(pamixer --get-volume)% (mute: $(pamixer --get-mute))"

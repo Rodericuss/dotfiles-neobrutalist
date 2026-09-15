@@ -6,6 +6,10 @@ python "$root/apply.py" "$@"
 if [[ "${1:-}" != --restore ]]; then python "$root/firefox.py"; fi
 if command -v herdr >/dev/null; then herdr server reload-config || true; fi
 if command -v swaync-client >/dev/null; then swaync-client --skip-wait --reload-css || true; fi
+if [[ -z "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]]; then
+    echo 'Files applied. Enter Hyprland to start the desktop.'
+    exit 0
+fi
 hyprctl reload
 errors="$(hyprctl configerrors)"
 if [[ -n "${errors//[[:space:]]/}" ]]; then printf '%s\n' "$errors" >&2; exit 1; fi
